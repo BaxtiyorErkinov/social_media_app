@@ -1,4 +1,9 @@
 import Home from '../components/pages/Home/Home'
+import Auth from '../components/pages/Auth/'
+import MessagesConversation from '../components/pages/Messages/Conversation'
+import Profile from '../components/pages/profile/'
+import Friends from '../components/pages/Friends/'
+
 
 export const routes = [
   {
@@ -10,25 +15,25 @@ export const routes = [
   {
     path: "/profile/:id",
     exact: false,
-    element: Home,
+    element: Profile,
     auth: true
   },
   {
     path: "/message/:id",
     exact: false,
-    element: Home,
+    element: MessagesConversation,
     auth: true
   },
   {
     path: "/friends/:id",
     exact: false,
-    element: Home,
+    element: Friends,
     auth: true
   },
   {
     path: "/auth",
     exact: true,
-    element: Home,
+    element: Auth,
     auth: false
   }
 ]

@@ -1,0 +1,10 @@
+.userName {
+    font-size: 16px;
+    font-family: sans-serif;
+}
+.date {
+    font-size: 14px;
+    margin-top: 5px;
+    color:rgb(158, 149, 149);
+    font-family: Ubuntu;
+}

@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { Box, Avatar, ImageList, ImageListItem } from "@mui/material";
 import { Link } from "react-router-dom";
-
 import { IPost } from "../../../types";
+
+import "./posts.css"
 
 interface IPostList {
   posts: IPost[];
@@ -19,6 +20,7 @@ const Posts: FC<IPostList> = ({ posts }) => {
             padding: 2,
             marginTop: 4
           }}
+          key={post.content}
         >
           <Link
             to={`/profile/${post.author.id}`}
@@ -35,21 +37,21 @@ const Posts: FC<IPostList> = ({ posts }) => {
               }}
             >
               <Avatar
-                src={post.author.name}
+                src={post.author.avatar}
                 alt="user"
                 sx={{ width: 48, height: 48 }}
               />
             </Box>
             <div>
               <div className="userName">{post.author.name}</div>
-              <div className="userName">{post.createdAt}</div>
+              <div className="date">{post.createdAt}</div>
             </div>
           </Link>
           <p>{post.content}</p>
           {post?.images?.length && (
             <ImageList variant="masonry" cols={3} gap={8}>
-              {post.images.map((img) => (
-                <ImageListItem key={img}>
+              {post.images.map((img, index) => (
+                <ImageListItem key={index}>
                   <img src={img} alt={img} loading="lazy" />
                 </ImageListItem>
               ))}
