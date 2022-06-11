@@ -1,7 +1,12 @@
 import React, { FC } from 'react';
+import { Box } from '@mui/material';
 
 const Home: FC = () => {
-  return <div>Home</div>;
+  return (
+    <Box>
+      salom
+    </Box>
+  )
 };
 
 export default Home;

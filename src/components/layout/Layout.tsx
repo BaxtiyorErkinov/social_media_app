@@ -13,7 +13,7 @@ const Layout: FC = ({ children }) => {
         </Grid>
         <Grid item md={10}>
           {children}
-        </Grid>        
+        </Grid>
       </Grid>
     </>
   );
