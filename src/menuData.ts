@@ -1,6 +1,7 @@
 import * as Icons from '@mui/icons-material';
+import { IMenuItems } from './types';
 
-export const menuItems = [
+export const menuItems: IMenuItems[] = [
 	{
 		id: 1,
 		title: "Profile",

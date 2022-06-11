@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Box, Card, Avatar, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { QuestionAnswer } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom'
-import { userData } from './data'
+import { userData } from '../../../../usersData'
 import "./users.css"
 
 const UserItem: FC = () => {
