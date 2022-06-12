@@ -1,18 +1,30 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Box, Avatar, ImageList, ImageListItem } from "@mui/material";
 import { Link } from "react-router-dom";
 import { IPost } from "../../../types";
+import {useAuth} from '../../../hooks/useAuth'
+import {collection, onSnapshot} from 'firebase/firestore'
+import { initialPosts } from './initialPosts'
 
 import "./posts.css"
 
-interface IPostList {
-  posts: IPost[];
-}
+// interface IPostList {
+//   posts: IPost[];
+// }
 
-const Posts: FC<IPostList> = ({ posts }) => {
+const Posts: FC = () => {
+  const [posts, setPosts] = useState<IPost[]>(initialPosts)
+  const {db} = useAuth()
+  useEffect(() => {
+    const unSub = onSnapshot(collection(db, "posts"), doc => {
+      doc.forEach((d:any) => {
+        setPosts(prev => [...prev, d.data()])
+      });
+    })
+  }, [])
   return (
     <>
-      {posts.map((post) => (
+      {posts.map((post, index) => (
         <Box
           sx={{
             border: "1px solid #e2e2e2",
@@ -20,7 +32,7 @@ const Posts: FC<IPostList> = ({ posts }) => {
             padding: 2,
             marginTop: 4
           }}
-          key={post.content}
+          key={index}
         >
           <Link
             to={`/profile/${post.author.id}`}

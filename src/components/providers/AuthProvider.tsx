@@ -3,19 +3,22 @@ import { onAuthStateChanged, Auth, getAuth } from "firebase/auth";
 import { IUser, TypeSetState } from "../../types";
 import { userData } from "../../usersData";
 import { app } from "../../firebase/";
+import { getFirestore, Firestore } from "firebase/firestore";
 
 interface IContext {
   user: IUser | null;
   setUser: TypeSetState<IUser | null>;
   ga: Auth;
+  db: Firestore;
 }
 
 export const AuthContext = createContext<IContext>({} as IContext);
 
 export const AuthProvider: FC = ({ children }) => {
   const [user, setUser] = useState<IUser | null>(null);
-
   const ga = getAuth(app);
+  const db = getFirestore();
+
   useEffect(() => {
     const unListen = onAuthStateChanged(ga, (authUser) => {
       if (authUser) {
@@ -24,7 +27,7 @@ export const AuthProvider: FC = ({ children }) => {
           avatar: userData[1].avatar,
           name: authUser.displayName || "",
         });
-      } else setUser(null)
+      } else setUser(null);
     });
     return () => {
       unListen();
@@ -36,8 +39,9 @@ export const AuthProvider: FC = ({ children }) => {
       user,
       setUser,
       ga,
+      db,
     }),
-    [user, ga]
+    [user, ga, db]
   );
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

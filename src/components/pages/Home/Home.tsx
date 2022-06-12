@@ -10,12 +10,10 @@ import Posts from "./Posts";
 import { IPost } from "../../../types";
 
 const Home: FC = () => {
-  const [posts, setPosts] = useState<IPost[]>(initialPosts);
-
   return (
     <Box>
-      <AddPosts setPosts={setPosts} />
-      <Posts posts={posts} />
+      <AddPosts />
+      <Posts />
     </Box>
   );
 };

@@ -23,7 +23,7 @@ const Auth: FC = () => {
     password: "",
     name: ""
   } as IUserData);
-  // const ga = getAuth(app)
+
   const handleLogin = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isRegForm) {
@@ -52,10 +52,11 @@ const Auth: FC = () => {
         setIsError(e.message);
       }
     }
-    // setUserData({
-    //   email: "",
-    //   password: "",
-    // });
+    setUserData({
+      email: "",
+      password: "",
+      name: ""
+    });
   };
   return (
     <div className="auth_wrapper">
