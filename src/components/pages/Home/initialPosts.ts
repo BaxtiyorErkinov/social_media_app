@@ -1,7 +1,7 @@
 export const initialPosts = [
   {
     author: {
-      id: 1,
+      id: "1",
       name: "Baxtiyor Erkinov",
       avatar:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQEZrATmgHOi5ls0YCCQBTkocia_atSw0X-Q&usqp=CAU",

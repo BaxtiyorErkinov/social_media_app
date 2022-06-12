@@ -5,7 +5,7 @@ import { OverridableComponent } from "@mui/material/OverridableComponent";
 export type TypeSetState<T> = Dispatch<SetStateAction<T>>
 
 export interface IUser {
-  id: number
+  id: string
   name: string
   avatar: string
   isInNetwork?: boolean

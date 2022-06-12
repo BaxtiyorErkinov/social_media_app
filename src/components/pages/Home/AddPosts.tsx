@@ -2,6 +2,7 @@ import React, { FC, useState, KeyboardEvent } from "react";
 import { TextField, Box } from "@mui/material";
 import { TypeSetState, IPost } from "../../../types";
 import { userData } from "../../../usersData";
+import {useAuth} from '../../../hooks/useAuth'
 
 interface IAddPost {
   setPosts: TypeSetState<IPost[]>;
@@ -9,12 +10,13 @@ interface IAddPost {
 
 const AddPosts: FC<IAddPost> = ({ setPosts }) => {
   const [content, setContent] = useState<string>('');
+  const {user} = useAuth()
 
   const addPostHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    if(e.key === "Enter") {
+    if(e.key === "Enter" && user) {
       setPosts((prev) => [
         {
-          author: userData[0],
+          author: user,
           content,
           createdAt: "5mins left",
         },

@@ -1,0 +1,21 @@
+.auth_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth_wrapper .form {
+
+}
+.auth_wrapper .form > .textfield {
+
+}
+.auth_wrapper .form > .login-btn {
+
+}
+
+..auth_wrapper .form > .reg-btn {
+
+}
+
