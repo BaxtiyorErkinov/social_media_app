@@ -67,6 +67,7 @@ const Auth: FC = () => {
           value={userData.name}
           onChange={(e) => setUserData({ ...userData, name: e.target.value })}
           className="textfield"
+          placeholder="Username"
         />
         <input
           type="email"
@@ -74,6 +75,7 @@ const Auth: FC = () => {
           onChange={(e) => setUserData({ ...userData, email: e.target.value })}
           required
           className="textfield"
+          placeholder="Email"
         />
         <input
           type="password"
@@ -83,6 +85,7 @@ const Auth: FC = () => {
           }
           required
           className="textfield"
+          placeholder="password"
         />
         <button
           type="submit"

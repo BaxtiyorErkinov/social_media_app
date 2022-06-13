@@ -11,11 +11,11 @@ const Layout: FC = ({ children }) => {
       <Header />
       <Grid container spacing={2} paddingX={5} marginTop={2}>
         {user && (
-          <Grid item md={3}>
+          <Grid item md={3} xs={12}>
             <Sidebar />
           </Grid>
         )}
-        <Grid item md={user ? 9 : 12}>
+        <Grid item md={user ? 9 : 12} xs={12}>
           {children}
         </Grid>
       </Grid>

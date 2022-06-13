@@ -9,6 +9,9 @@ export interface IUser {
   name: string
   avatar: string
   isInNetwork?: boolean
+  job?: string
+  age?: number
+  region?: string 
 }
 
 export interface IPost {

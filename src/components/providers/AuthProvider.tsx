@@ -26,6 +26,9 @@ export const AuthProvider: FC = ({ children }) => {
           id: authUser.uid,
           avatar: userData[1].avatar,
           name: authUser.displayName || "",
+          age: 18,
+          job: "Front-end Developer",
+          region: "Djizzakh"
         });
       } else setUser(null);
     });

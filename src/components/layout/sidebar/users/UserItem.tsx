@@ -57,7 +57,7 @@ const UserItem: FC = () => {
       ))}
       <List>
         <ListItem disablePadding>
-          <ListItemButton onClick={() => navigate("/massage")}>
+          <ListItemButton onClick={() => navigate("/message")}>
             <ListItemIcon>
               <QuestionAnswer />
             </ListItemIcon>
